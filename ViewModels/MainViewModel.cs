@@ -15,6 +15,8 @@ namespace WPF_LoginForm.ViewModels
     {
         //Fields
         private ViewModelBase _currentChildView;
+        private CustomerViewModel _customerViewModel;
+        private HomeViewModel _homeViewModel;
 
         public ViewModelBase CurrentChildView
         {
@@ -35,6 +37,10 @@ namespace WPF_LoginForm.ViewModels
         public ICommand ShowCustomerViewCommand { get; }
         public MainViewModel()
         {
+            _customerViewModel = new CustomerViewModel();
+            _homeViewModel = new HomeViewModel();
+
+
             //Initialize commands
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
             ShowCustomerViewCommand = new ViewModelCommand(ExecuteShowCustomerViewCommand);
@@ -45,11 +51,11 @@ namespace WPF_LoginForm.ViewModels
         }
         private void ExecuteShowCustomerViewCommand(object obj)
         {
-            CurrentChildView = new CustomerViewModel();
+            CurrentChildView = _customerViewModel;
         }
         private void ExecuteShowHomeViewCommand(object obj)
         {
-            CurrentChildView = new HomeViewModel();
+            CurrentChildView = _homeViewModel;
         }
         private void LoadCurrentUserData()
         {
