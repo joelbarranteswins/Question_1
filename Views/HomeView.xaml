@@ -9,7 +9,7 @@
     <Grid>
         
 
-        <TextBox Text="Write something"
+        <TextBox Text="{Binding Text}"
                 FontSize="20"
                 Margin="10,10,0,0"
                 Foreground="Green"
